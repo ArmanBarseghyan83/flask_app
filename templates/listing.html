@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block logo %}{{user}}{% endblock %}
+
+{% block main %}
+<div class="card mb-3 mt-5">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img class="img-fluid rounded-start" src="{{ listing['imageUrl'] }}" />
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h4 style="color:rgb(0, 202, 67)" class="card-title"> {{ listing.title }} </h4>
+                <p class="card-text"><b>Category:</b> {{ category }} </p>
+                <p class="card-text"><b>Seller:</b> {{ seller }} </p>
+                <p class="card-text"><b>Price:</b> ${{ listing.price }} </p>
+                {% if is_buy %}
+                <a class="btn btn-secondary mb-3" href="/buy/{{listing['id']}}">Buy Again</a>
+                {% else %}
+                <a class="btn btn-secondary mb-3" href="/buy/{{listing['id']}}">Buy Now</a>
+                {% endif %}
+                {% if not session["user_id"] in cart_user_id %}
+                <a class="btn btn-secondary mb-3" href="/add/{{listing['id']}}">Add To Cart</a>
+                {% else %}
+                <a class="btn btn-secondary mb-3" href="/remove/{{listing['id']}}">Remove From Cart</a>
+                {% endif %}
+                {% if listing.user_id == user_id %}
+                <a data-id="{{ listing['id'] }}" class="delete btn btn-danger mb-3" href="#">Delete</a>
+                {% endif %}
+                <div class="me-2">
+                    <p class="card-text mb-1"><b>Description:</b></p>
+                    <p class="card-text"> {{ listing.description }} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/index.js"></script>
+{% endblock %}

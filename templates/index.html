@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block logo %}{{user}}{% endblock %}
+{% block main %}
+
+<h1 class="heading">{{ heading }}</h1>
+
+<div class="index-wrapper">
+    {% for listing in listings %}
+    <a class="index-card" href="{{ url_for('listing', listing_id=listing['id'] ) }}">
+        <div class="index-img-wrapper"><img src="{{ listing['imageUrl'] }}" /></div>
+        <div class="index-card-content">
+            <h5>{{ listing.title }}</h5>
+            <p><b>Price: </b> ${{ listing.price }}</p>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+{% endblock %}

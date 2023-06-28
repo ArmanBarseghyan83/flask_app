@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block logo %}{{user}}{% endblock %}
+{% block main %}
+
+<h1 class="heading">Categories</h1>
+
+
+{% for category in categories %}
+
+<a class="category" href="{{ url_for('category', category_id=category['id'] ) }}"> {{ category["name"] }} </a>
+
+{% endfor %}
+
+
+{% endblock %}

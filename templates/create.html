@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block logo %}{{user}}{% endblock %}
+{% block main %}
+
+<h1 class="heading">New Listing</h1>
+
+<form class="form-group w-100 mx-auto" action="/create" method="post">
+    <div class="mb-3 ">
+        <label for="title" class="form-label">Title</label>
+        <input class="form-control" required name="title" type="text" id="title">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" required name="description" id="description"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="imageUrl" class="form-label">Image Url</label>
+        <input class="form-control" required name="imageUrl" type="url" id="imageUrl">
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input class="form-control" required name="price" type="number" min="0" step="any" id="price">
+    </div>
+    <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <select name="category" class="form-control" required id="category">
+            {% for category in categories %}
+            <option> {{category['name']}} </option>
+            {% endfor %}
+        </select>
+    </div>
+    <button class="btn btn-secondary" type="submit">Create</button>
+
+</form>
+{% endblock %}
