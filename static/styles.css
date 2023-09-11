@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Open+Sans:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", "Lato", sans-serif;
+  margin: 0;
+  background-color: rgb(248, 251, 255);
+}
+
+main {
+  margin: 6rem auto;
+  width: 80%;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  background-color: rgb(86, 95, 109);
+}
+
+nav .nav-brand {
+  font-size: xx-large;
+  color: rgb(255, 255, 255);
+}
+
+nav a {
+  color: white !important;
+}
+
+nav a:hover {
+  color: rgb(0, 0, 0) !important;
+}
+
+.heading {
+  text-align: center;
+  margin: 1.5rem auto;
+  color: rgb(86, 95, 109);
+}
+
+.index-wrapper {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 48% 48%;
+  gap: 1rem;
+  justify-items: center;
+  text-align: center;
+}
+
+.index-card {
+  display: grid;
+  background-color: rgb(248, 251, 255);
+  color: rgb(86, 95, 109);
+  box-shadow: 0px 3px 7px rgb(138, 138, 138);
+  padding: 0.5rem;
+  width: 100%;
+  height: fit-content;
+  border-radius: 0.3rem;
+  justify-content: space-between;
+  grid-template-columns: 59% 39%;
+  gap: 2%;
+}
+
+.index-card-content {
+  overflow-wrap: break-word;
+}
+
+.index-img-wrapper {
+  max-width: 15rem;
+  height: 15rem;
+  overflow: hidden;
+}
+
+.index-wrapper img {
+  width: 100%;
+}
+
+.index-card:hover,
+.category:hover {
+  box-shadow: 0px 3px 7px rgb(138, 138, 138);
+  color: rgb(86, 95, 109);
+  filter: brightness(0.95);
+}
+
+.category {
+  box-shadow: 0px 3px 7px rgb(138, 138, 138);
+  background-color: rgb(248, 251, 255);
+  color: rgb(86, 95, 109);
+  display: block;
+  padding: 1rem;
+}
+
+.card {
+  background-color: rgb(248, 251, 255);
+  box-shadow: 0px 3px 7px rgb(138, 138, 138);
+}
+
+/* Responsive */
+
+@media (max-width: 1250px) {
+  .index-img-wrapper {
+    height: 10rem;
+  }
+}
+
+@media (max-width: 990px) {
+  .index-img-wrapper {
+    height: 8rem;
+  }
+
+  .index-card {
+    grid-template-columns: 49% 49%;
+    gap: 2%;
+  }
+}
+
+@media (max-width: 770px) {
+  .index-img-wrapper {
+    height: 7rem;
+  }
+
+  .index-card {
+    justify-content: space-between;
+    grid-template-columns: 39% 59%;
+    gap: 2%;
+  }
+}
+
+@media (max-width: 580px) {
+  .index-wrapper {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  main {
+    margin: 5rem auto;
+    width: 92%;
+  }
+}
