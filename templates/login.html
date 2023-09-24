@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block logo %}E-Commerce{% endblock %}
 {% block main %}
-<form action="/login" method="post" class="mx-auto mt-5 w-75">
+<form action="/login" method="post" class="mx-auto mt-5 w-75 login">
     <div class="mb-3">
         <input autocomplete="off" autofocus class="form-control" id="username" name="username" placeholder="Username"
             type="text" />
@@ -11,6 +11,9 @@
     </div>
     <button class="btn btn-secondary" type="submit">Log In</button>
 </form>
+
+<div class="mx-auto mt-2 w-75">Don't have an account? <a href="/register">Register here.</a></div>
+
 <form action="/login" method="post" class="mx-auto mt-5 w-75">
 
     <input name="username" value="arman" type="text" hidden />
