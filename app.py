@@ -38,17 +38,14 @@ def listing(listing_id):
         user_id = session["user_id"]
         user = db.execute('SELECT username FROM users WHERE id = ?', user_id)[0]['username'].capitalize()
         cart_user = db.execute("SELECT user_id FROM carts WHERE listing_id = ?", listing_id)
-        cart_user_id = []
-        for i in cart_user:
-            cart_user_id.append(i['user_id'])
+        cart_user_id = [i['user_id'] for i in cart_user ]
         listing = db.execute("SELECT * FROM listings WHERE id = ?", listing_id)[0]
         category = db.execute('SELECT name FROM categories WHERE id = ?', listing['category_id'])[0]['name']
         seller = db.execute("SELECT username FROM users WHERE id = ?", listing['user_id'])[0]['username'].capitalize()
         order_listing = db.execute('SELECT listing_id FROM orders WHERE user_id=?', session["user_id"])
-        ids = []
-        for i in order_listing:
-            ids.append(i["listing_id"])
+        ids = [i["listing_id"] for i in order_listing]
         is_buy = listing["id"] in ids
+
         return render_template("listing.html", seller=seller, listing=listing, cart_user_id=cart_user_id, 
         is_buy=is_buy, user_id=user_id, user=user, category=category)
     except:
