@@ -136,8 +136,16 @@ nav a:hover {
     gap: 1rem;
   }
 
+  .index-card {
+    width: 95%;
+  }
+
+  .listing {
+    width: 95%;
+    margin-left: 2.5%;
+  }
+
   main {
     width: 100%;
   }
-  
 }
