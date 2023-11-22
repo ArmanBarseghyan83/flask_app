@@ -20,6 +20,7 @@ def after_request(response):
     return response
 
 
+# Home page
 @app.route("/")
 @login_required
 def index():
@@ -31,6 +32,8 @@ def index():
     except:
         return apology("Something went wrong!", 500)
 
+
+# The listing page
 @app.route("/lisitng/<listing_id>")
 @login_required
 def listing(listing_id):
@@ -52,6 +55,7 @@ def listing(listing_id):
         return apology("Something went wrong!", 500)
 
 
+# All categories page
 @app.route("/categories")
 @login_required
 def categories():
@@ -64,6 +68,7 @@ def categories():
         return apology("Something went wrong!", 500)
 
 
+# Listings for the specific category
 @app.route("/category/<category_id>")
 @login_required
 def category(category_id):
@@ -77,6 +82,7 @@ def category(category_id):
         return apology("Something went wrong!", 500)
 
 
+# Cart page
 @app.route("/cart")
 @login_required
 def cart():
@@ -92,7 +98,7 @@ def cart():
         return apology("Something went wrong!", 500)
 
 
-
+# Buy the listing and redirect to the orders page
 @app.route("/buy/<listing_id>")
 @login_required
 def buy(listing_id):
@@ -104,6 +110,7 @@ def buy(listing_id):
         return apology("Something went wrong!", 500)
 
 
+# Add the listing to the cart
 @app.route("/add/<listing_id>")
 @login_required
 def add_cart(listing_id):
@@ -114,6 +121,7 @@ def add_cart(listing_id):
         return apology("Something went wrong!", 500)
 
 
+# Remove the listing from the cart
 @app.route("/remove/<listing_id>")
 @login_required
 def remove_cart(listing_id):
@@ -124,6 +132,7 @@ def remove_cart(listing_id):
         return apology("Something went wrong!", 500)
 
 
+# Orders page
 @app.route("/orders")
 @login_required
 def orders():
@@ -139,6 +148,7 @@ def orders():
         return apology("Something went wrong!", 500)
 
 
+# Create a new listing
 @app.route("/create", methods=["GET", "POST"])
 @login_required
 def create():
@@ -161,6 +171,7 @@ def create():
         return apology("Something went wrong!", 500)   
 
 
+# Delete the listing by its id value
 @app.route("/delete/<listing_id>")
 @login_required
 def delete(listing_id):

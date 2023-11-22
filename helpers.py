@@ -14,7 +14,7 @@ def apology(message, code=400):
     return render_template("apology.html", top=code, bottom=escape(message)), code
 
 
-
+# Allow to the page only if logged in 
 def login_required(f):
     
     @wraps(f)

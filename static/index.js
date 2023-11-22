@@ -1,3 +1,4 @@
+// Delete a listing by its id value
 document.querySelector(".delete").addEventListener("click", (e) => {
   const confirm = window.confirm("Are you sure?");
 
